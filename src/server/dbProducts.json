@@ -1,0 +1,58 @@
+[
+    {
+        "id": 0,
+        "name": "Almendrado en Barra",
+        "img": "https://chevanne.com.ar/image.php/uploads/dce347Productosapp03.jpg?width=400&image=/uploads/dce347Productosapp03.jpg",
+        "desc": "Rinde por 10 porciones, 1u",
+        "price": 480
+    },
+    {
+        "id": 1,
+        "name": "Helado Frutos Rojos",
+        "img": "https://chevanne.com.ar/image.php/uploads/dc77d6ProductosappBalde10L2.jpg?width=400&image=/uploads/dc77d6ProductosappBalde10L2.jpg",
+        "desc": "Balde de 10L sabor premium",
+        "price": 2400
+    },
+    {
+        "id": 2,
+        "name": "Helado Americana",
+        "img": "https://chevanne.com.ar/image.php/uploads/a31182Productosapp11.jpg?width=400&image=/uploads/a31182Productosapp11.jpg",
+        "desc": "Balde de 10L sabor común",
+        "price": 1590
+    },
+    {
+        "id": 3,
+        "name": "Helado de Chocolate",
+        "img": "https://chevanne.com.ar/image.php/uploads/c8a2a6Productosapp12.jpg?width=400&image=/uploads/c8a2a6Productosapp12.jpg",
+        "desc": "Balde de 10L sabor especial",
+        "price": 1920
+    },
+    {
+        "id": 4,
+        "name": "Palito de crema Ice Pop",
+        "img": "https://chevanne.com.ar/image.php/uploads/6ef880PalitoaguaIcePoP.jpg?width=400&image=/uploads/6ef880PalitoaguaIcePoP.jpg",
+        "desc": "Caja por 12u",
+        "price": 350
+    },
+    {
+        "id": 5,
+        "name": "Palito de combinado",
+        "img": "https://chevanne.com.ar/image.php/uploads/5dfe30Productosapp33.jpg?width=400&image=/uploads/5dfe30Productosapp33.jpg",
+        "desc": "Caja x 24u",
+        "price": 2400
+    },
+    {
+        "id": 6,
+        "name": "Palito Granizado",
+        "img": "https://chevanne.com.ar/image.php/uploads/ceca14Productosapp28.jpg?width=400&image=/uploads/ceca14Productosapp28.jpg",
+        "desc": "Caja por 24u",
+        "price": 910
+    },
+    {
+        "id": 7,
+        "name": "Tiramisú en barra",
+        "img": "https://chevanne.com.ar/image.php/uploads/3e2f57Productosapp18.jpg?width=400&image=/uploads/3e2f57Productosapp18.jpg",
+        "desc": "Rinde 10 porciones. 1u",
+        "price": 2400
+    }
+]
