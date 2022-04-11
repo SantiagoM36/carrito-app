@@ -1,4 +1,5 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Table from 'react-bootstrap/Table';
 import Button from 'react-bootstrap/Button';
 import IceCream from './IceCream.components';
@@ -6,7 +7,8 @@ import IceCream from './IceCream.components';
 class Cart extends React.Component {
     state = {}
     render() {
-        const { cart, removeProductFromCart } = this.props;
+        const { iceCreams, removeProductFromCart } = this.props.state;
+        //console.log('this.props ', this.props)
         return (
             <section className='d-flex flex-column'>
                 <div className='col-6'>
@@ -22,14 +24,14 @@ class Cart extends React.Component {
                             </tr>
                         </thead>
                         <tbody className='text-white'>
-                            {cart.length === 0
+                            {iceCreams.cart.length === 0
                                 ? <tr>
                                     <td colSpan={6} className='text-center'>No hay elementos que mostrar</td>
                                 </tr>
-                                : cart.map((item, i) => (
+                                : iceCreams.cart.map((item, i) => (
                                     <IceCream key={i} cart={item} removeProductFromCart={removeProductFromCart} />
                                 ))
-                            }
+                                }
                         </tbody>
                     </Table>
                 </div>
@@ -41,4 +43,10 @@ class Cart extends React.Component {
     }
 }
 
-export default Cart;
+const mapStateToProps = state => {
+    return {
+        state
+    }
+}
+
+export default connect(mapStateToProps)(Cart);

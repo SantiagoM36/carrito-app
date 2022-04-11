@@ -1,10 +1,13 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Button from 'react-bootstrap/Button';
+import { REMOVE_ALL_FROM_CART, REMOVE_ONE_FROM_CART } from '../actions/types';
 
 class IceCream extends React.Component {
     render() {
+        console.log('This.props', this.props.cart)
         return (
-            this.props.cart.map(iceCream => (
+            Object.keys(this.props.cart).map(iceCream => (
                 <tr key={iceCream.id} className=''>
                     <td><img src={iceCream.img} className='img-thumbnail img-table' alt={iceCream.name}/></td>
                     <td className='text-info mt-1'>{iceCream.name}</td>
@@ -25,4 +28,15 @@ class IceCream extends React.Component {
     }
 }
 
-export default IceCream;
+const mapDispatchToProps = dispatch => {
+    return ({
+        removeProductFromCart: (id, all = false) => 
+            all 
+                ? dispatch({type: REMOVE_ALL_FROM_CART, payload: id}) 
+                : dispatch({type: REMOVE_ONE_FROM_CART, payload: id})
+    })
+}
+
+
+
+export default connect(null, mapDispatchToProps)(IceCream);

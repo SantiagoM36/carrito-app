@@ -10,7 +10,8 @@ class Index extends React.Component {
             <>
                 <Header cart={this.props.cart} removeProductFromCart={this.props.removeProductFromCart}/>
                 <Container>
-                    <Products products={this.props.products} loading={this.props.loading} addProductToCart={this.props.addProductToCart} cart={this.props.cart}/>
+                    <Products
+                        loading={this.props.loading} addProductToCart={this.props.addProductToCart} cart={this.props.cart}/>
                 </Container>
             </>
         );

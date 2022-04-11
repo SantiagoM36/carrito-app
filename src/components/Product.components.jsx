@@ -4,9 +4,12 @@ import Button from 'react-bootstrap/Button';
 import Col from 'react-bootstrap/Col';
 
 import toast, { Toaster } from 'react-hot-toast';
+import { connect } from 'react-redux';
+import { ADD_TO_CART } from '../actions/types';
+//import { addToCart } from '../actions/shopping.actions';
 
 const Product = props => {
-
+    const { addToCart } = props;
     /*restIceCream = id => {
         const idProduct = product => product.id === id;
 
@@ -30,7 +33,7 @@ const Product = props => {
                             Cantidad: {props.cant}
                         </Card.Text>
                         </div>
-                        <Button variant="outline-info" className='rounded-pill offset-3 offset-md-1' onClick={() => {props.addProductToCart(props); toast.success(`El producto ${props.name} fue añadido con exito`)}}>Añadir al carrito</Button>
+                        <Button variant="outline-info" className='rounded-pill offset-3 offset-md-1' onClick={() => {addToCart(props); toast.success(`El producto ${props.name} fue añadido con exito`)}}>Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -57,4 +60,10 @@ const Product = props => {
     );
 }
 
-export default Product;
+const mapDispatchToProps = dispatch => {
+    return ({
+        addToCart: value => dispatch({type: ADD_TO_CART, payload: {cart: value}})
+    })
+}
+
+export default connect(null, mapDispatchToProps)(Product);
