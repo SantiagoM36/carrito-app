@@ -8,7 +8,7 @@ class Cart extends React.Component {
     state = {}
     render() {
         const { iceCreams, removeProductFromCart } = this.props.state;
-        //console.log('this.props ', this.props)
+
         return (
             <section className='d-flex flex-column'>
                 <div className='col-6'>
@@ -29,7 +29,7 @@ class Cart extends React.Component {
                                     <td colSpan={6} className='text-center'>No hay elementos que mostrar</td>
                                 </tr>
                                 : iceCreams.cart.map((item, i) => (
-                                    <IceCream key={i} cart={item} removeProductFromCart={removeProductFromCart} />
+                                    <IceCream key={item.id} cart={item} removeProductFromCart={removeProductFromCart} />
                                 ))
                                 }
                         </tbody>

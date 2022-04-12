@@ -145,3 +145,8 @@
   right: 35px;
   top: 10px;
 }
+
+tbody {
+  /*overflow: auto;*/
+  max-height: 200px;
+}

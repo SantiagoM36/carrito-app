@@ -6,14 +6,9 @@ import Col from 'react-bootstrap/Col';
 import toast, { Toaster } from 'react-hot-toast';
 import { connect } from 'react-redux';
 import { ADD_TO_CART } from '../actions/types';
-//import { addToCart } from '../actions/shopping.actions';
 
 const Product = props => {
     const { addToCart } = props;
-    /*restIceCream = id => {
-        const idProduct = product => product.id === id;
-
-    }*/
 
     return (
         <>

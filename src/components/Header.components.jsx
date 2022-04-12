@@ -1,10 +1,12 @@
 import React from 'react';
+import { connect } from 'react-redux';
 import Navbar from 'react-bootstrap/Navbar';
 import Nav from 'react-bootstrap/Nav';
 import Container from 'react-bootstrap/Container';
 import Cart from './Cart.components';
 
 import { CartFill, CartOut, CloseCart } from './Buttons.components';
+import { CLEAR_CART } from '../actions/types';
 
 
 
@@ -29,7 +31,8 @@ class Header extends React.Component {
     }
 
     render() {
-        const { cart, removeProductFromCart } = this.props;
+        const { cart } = this.props.state.iceCreams;
+        const { clearCart } = this.props;
         
         const widthCartContent = this.state.cartOpen ? 680 : 0;
         return (
@@ -52,7 +55,8 @@ class Header extends React.Component {
                             <h3 className='h4 text-light p-3'>Carrito de compras</h3>
                             <CloseCart closeCart={this.closeCart} />
                         </div>
-                        <Cart cart={cart} removeProductFromCart={removeProductFromCart} />
+                        <button type="button" className='btn btn-danger' onClick={() => clearCart()}>Limpiar Carrito</button>
+                        <Cart cart={cart} />
                     </aside>
 
                 </Navbar.Collapse>
@@ -61,4 +65,16 @@ class Header extends React.Component {
     }
 }
 
-export default Header;
+const mapStateToProps = state => {
+    return {
+        state
+    }
+}
+
+const mapDispatchToProps = dispatch => {
+    return ({
+        clearCart: () => dispatch({type: CLEAR_CART})
+    })
+}
+
+export default connect(mapStateToProps, mapDispatchToProps)(Header);

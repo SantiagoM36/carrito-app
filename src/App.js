@@ -1,6 +1,6 @@
 import React from 'react';
 import { Provider } from 'react-redux';
-import { initProducts } from './actions/shopping.actions';
+import { initProducts, initCart } from './actions/shopping.actions';
 import store from './store';
 
 import Index from './pages/Index.pages';
@@ -10,17 +10,7 @@ import { STORAGE_PRODUCTS_CART } from './utils/constants';
 
 class App extends React.Component {
   state = {
-    products: [],
-    loading: true,
-    cart: []
-  }
-
-  setProducts = products => {
-    this.setState({ products })
-  }
-
-  setCart = product => {
-    this.setState({ cart: product })
+    loading: true
   }
 
   componentDidMount() {
@@ -33,35 +23,15 @@ class App extends React.Component {
     this.getProductsFromStorage()
   }
 
-  addProductToCart = ({ id }) => {
-    const products = [...this.state.products];
-    const searchProduct = product => product.id === id;
-    const carrito = products.filter(searchProduct);
-
-    this.setCart([...this.state.cart, carrito]);
-    localStorage.setItem(STORAGE_PRODUCTS_CART, JSON.stringify(this.state.cart))
-  }
-
   getProductsFromStorage = () => {
-    const products = localStorage.getItem(STORAGE_PRODUCTS_CART);
+    const products = JSON.parse(localStorage.getItem(STORAGE_PRODUCTS_CART));
 
     if (!products) {
       return;
     } else {
-      this.setCart(JSON.parse(products))
+      store.dispatch(initCart(products))
     }
 
-  }
-
-  removeProductFromCart = id => {
-    const { cart } = this.state;
-    const product = cart.filter(product => product[0].id !== id);
-    this.setCart(product)
-    localStorage.setItem(STORAGE_PRODUCTS_CART, JSON.stringify(product))
-  }
-
-  emptyCart = () => {
-    localStorage.removeItem(STORAGE_PRODUCTS_CART)
   }
 
   render() {
@@ -70,9 +40,6 @@ class App extends React.Component {
         <div className="App">
           <Index
             loading={this.state.loading}
-            cart={this.state.cart}
-            //addProductToCart={this.addProductToCart}
-            //removeProductFromCart={this.removeProductFromCart}
           />
         </div>
       </Provider>
