@@ -6,8 +6,9 @@ import IceCream from './IceCream.components';
 
 class Cart extends React.Component {
     render() {
-        const { iceCreams } = this.props.state;
-
+        const { cart } = this.props.state.iceCreams;
+        console.log('State: ', this.props)
+        console.log('length: ', Object.keys(cart).length)
         return (
             <section className='d-flex flex-column'>
                 <div className='col-6'>
@@ -23,11 +24,11 @@ class Cart extends React.Component {
                             </tr>
                         </thead>
                         <tbody className='text-white'>
-                            {iceCreams.cart.length === 0
+                            { cart.length === 0
                                 ? <tr>
                                     <td colSpan={6} className='text-center'>No hay elementos que mostrar</td>
                                 </tr>
-                                : iceCreams.cart.map((item, i) => (
+                                : cart.map((item, i) => (
                                     <IceCream key={i} cart={item} />
                                 ))
                                 }
