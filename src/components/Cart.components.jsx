@@ -7,8 +7,7 @@ import IceCream from './IceCream.components';
 class Cart extends React.Component {
     render() {
         const { cart } = this.props.state.iceCreams;
-        console.log('State: ', this.props)
-        console.log('length: ', Object.keys(cart).length)
+    
         return (
             <section className='d-flex flex-column'>
                 <div className='col-6'>

@@ -6,7 +6,7 @@ import Spinner from './Spinner.components';
 class Products extends React.Component {
     render() {
         const { products } = this.props.products;
-        console.log('Props: ', this.props)
+        
         return (
             <section className='row mt-5'>
                 { this.props.loading 
