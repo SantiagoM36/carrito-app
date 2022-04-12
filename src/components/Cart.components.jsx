@@ -5,9 +5,8 @@ import Button from 'react-bootstrap/Button';
 import IceCream from './IceCream.components';
 
 class Cart extends React.Component {
-    state = {}
     render() {
-        const { iceCreams, removeProductFromCart } = this.props.state;
+        const { iceCreams } = this.props.state;
 
         return (
             <section className='d-flex flex-column'>
@@ -29,7 +28,7 @@ class Cart extends React.Component {
                                     <td colSpan={6} className='text-center'>No hay elementos que mostrar</td>
                                 </tr>
                                 : iceCreams.cart.map((item, i) => (
-                                    <IceCream key={item.id} cart={item} removeProductFromCart={removeProductFromCart} />
+                                    <IceCream key={i} cart={item} />
                                 ))
                                 }
                         </tbody>

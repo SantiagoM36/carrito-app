@@ -9,7 +9,6 @@ import { ADD_TO_CART } from '../actions/types';
 
 const Product = props => {
     const { addToCart } = props;
-
     return (
         <>
             <Col xs={12} md={4} lg={3} className='mb-4' >

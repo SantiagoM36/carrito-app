@@ -12,7 +12,7 @@ export const shoppingReducer = (state = initialValue, action) => {
             return {...state, products: action.payload.products}
 
         case INIT_CART:
-            return {...state, cart: action.payload}
+            return {...state, cart: [action.payload]}
 
         case ADD_TO_CART:
             const findIdProduct = product => product.id === action.payload.cart.id;

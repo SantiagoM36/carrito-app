@@ -4,14 +4,14 @@ import Header from '../components/Header.components';
 import Products from '../components/Products.components';
 
 class Index extends React.Component {
-    state = {}
+    
     render() {
         return (
             <>
-                <Header cart={this.props.cart} removeProductFromCart={this.props.removeProductFromCart}/>
+                <Header />
                 <Container>
                     <Products
-                        loading={this.props.loading} addProductToCart={this.props.addProductToCart} cart={this.props.cart}/>
+                        loading={this.props.loading} />
                 </Container>
             </>
         );

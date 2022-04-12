@@ -11,10 +11,7 @@ class Products extends React.Component {
                 { this.props.loading 
                         ? <Spinner />
                         : products.map(product=> (
-                            <Product key={product.id} {...product} 
-                            //addProductToCart={this.props.addProductToCart} 
-                            //cart={this.props.cart}
-                            />
+                            <Product key={product.id} {...product} />
                         ))
                 }
             </section>
