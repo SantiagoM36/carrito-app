@@ -8,26 +8,28 @@ import { connect } from 'react-redux';
 import { ADD_TO_CART } from '../actions/types';
 
 const Product = props => {
-    const { addToCart } = props;
+    const { addToCart, product } = props;
+    //const { products, cart } = props.state.iceCreams;
+
     return (
         <>
             <Col xs={12} md={4} lg={3} className='mb-4' >
                 <Card>
-                    <Card.Img variant="top" src={props.img} />
+                    <Card.Img variant="top" src={product.img} />
                     <Card.Body>
-                        <Card.Title className='text-info h5'>{props.name}</Card.Title>
+                        <Card.Title className='text-info h5'>{product.name}</Card.Title>
                         <div className='row'>
                         <Card.Text className='col-8 col-lg-7'>
-                            {props.desc}
+                            {product.desc}
                         </Card.Text>
                         <Card.Text className='col h6'>
-                            $ {props.price.toFixed(2)}
+                            $ {product.price.toFixed(2)}
                         </Card.Text>
-                        <Card.Text className='col'>
-                            Cantidad: {props.cant}
+                        <Card.Text className='col'>  
+                            Cantidad: {product.cant}
                         </Card.Text>
                         </div>
-                        <Button variant="outline-info" className='rounded-pill offset-3 offset-md-1' onClick={() => {addToCart(props); toast.success(`El producto ${props.name} fue añadido con exito`)}}>Añadir al carrito</Button>
+                        <Button variant="outline-info" className='rounded-pill offset-3 offset-md-1' onClick={() => {addToCart(product); toast.success(`El producto ${product.name} fue añadido con exito`)}}>Añadir al carrito</Button>
                     </Card.Body>
                 </Card>
             </Col>
@@ -54,10 +56,16 @@ const Product = props => {
     );
 }
 
+const mapStateToProps = state => {
+    return ({
+        state
+    })
+}
+
 const mapDispatchToProps = dispatch => {
     return ({
         addToCart: value => dispatch({type: ADD_TO_CART, payload: {cart: value}})
     })
 }
 
-export default connect(null, mapDispatchToProps)(Product);
+export default connect(mapStateToProps, mapDispatchToProps)(Product);

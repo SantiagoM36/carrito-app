@@ -58,7 +58,6 @@ class Header extends React.Component {
                         <button type="button" className='btn btn-danger' onClick={() => clearCart()}>Limpiar Carrito</button>
                         <Cart cart={cart} />
                     </aside>
-
                 </Navbar.Collapse>
             </Navbar> 
         )
